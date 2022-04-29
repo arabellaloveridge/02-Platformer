@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Explosion/Explosion.gd" type="Script" id=1]
 
@@ -8,6 +8,14 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=6]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0.0206186, 200 ), 0.0, 0.0, 0, 0, Vector2( 1, -1.80179 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
 
 [sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.507732, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -28,6 +36,7 @@ angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = 100.0
+linear_accel_curve = SubResource( 7 )
 scale = 5.0
 scale_curve = SubResource( 5 )
 color = Color( 1, 0, 0, 1 )
