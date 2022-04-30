@@ -65,8 +65,11 @@ shape = SubResource( 3 )
 position = Vector2( 0, 15 )
 shape = SubResource( 7 )
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 1024
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

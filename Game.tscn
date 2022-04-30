@@ -1,11 +1,15 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/platformPack_tilesheet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/backgroundEmpty.png" type="Texture" id=3]
 [ext_resource path="res://Pickups/Jewel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Ghost.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=6]
+[ext_resource path="res://Key/Key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Items/platformPack_item007.png" type="Texture" id=8]
+[ext_resource path="res://Assets/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://UI/UI.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Items/platformPack_item017.png" type="Texture" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -195,6 +199,24 @@ points = PoolVector2Array( 0, 32, 64, 32, 64, 64, 0, 64 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 1833, 56 )
 
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 2, 34.25 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 0.392157 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=13]
+size = 32
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 32
+font_data = ExtResource( 9 )
+
 [node name="Game" type="Node2D"]
 
 [node name="Environment" type="Node2D" parent="."]
@@ -220,7 +242,7 @@ texture = ExtResource( 3 )
 tile_set = SubResource( 5 )
 collision_mask = 2
 format = 1
-tile_data = PoolIntArray( 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 4, 0, 393232, 4, 0, 393233, 4, 0, 393234, 4, 0, 393235, 4, 0, 393236, 4, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458761, 3, 0, 458762, 3, 0, 458763, 3, 0, 458764, 3, 0, 458765, 3, 0, 524289, 3, 0, 524290, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524309, 0, 0, 524310, 0, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589845, 3, 0, 589846, 3, 0, 589847, 0, 0, 655382, 3, 0, 655383, 3, 0, 655384, 0, 0, 720919, 3, 0, 720920, 3, 0, 720921, 0, 0, 786456, 3, 0, 786457, 3, 0, 786458, 0, 0, 851993, 3, 0, 851994, 3, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, 0, 0, 852005, 0, 0, 852006, 0, 0, 852007, 0, 0, 852008, 0, 0, 852009, 0, 0, 852010, 0, 0, 852011, 0, 0, 852012, 0, 0, 852013, 0, 0, 852014, 0, 0, 852015, 0, 0, 917530, 3, 0, 917531, 3, 0, 917532, 3, 0, 917533, 3, 0, 917534, 3, 0, 917535, 3, 0, 917541, 3, 0, 917542, 3, 0, 917543, 3, 0, 917544, 3, 0, 917545, 3, 0, 917546, 3, 0, 917547, 3, 0, 917548, 3, 0, 917549, 3, 0, 917550, 3, 0, 917551, 3, 0, 983067, 3, 0, 983068, 3, 0, 983069, 3, 0, 983070, 3, 0, 983071, 3, 0, 983072, 3, 0, 983073, 3, 0, 983074, 3, 0, 983075, 3, 0, 983076, 3, 0, 983077, 3, 0, 983078, 3, 0, 983079, 3, 0, 983080, 3, 0, 983081, 3, 0, 983082, 3, 0, 983083, 3, 0, 983084, 3, 0, 983085, 3, 0, 983086, 3, 0, 983087, 3, 0 )
+tile_data = PoolIntArray( -65489, 0, 0, 65535, 0, 0, 47, 0, 0, 131071, 0, 0, 65583, 0, 0, 196607, 0, 0, 131119, 0, 0, 262143, 0, 0, 196655, 0, 0, 327679, 0, 0, 262191, 0, 0, 393215, 0, 0, 327727, 0, 0, 458751, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393231, 4, 0, 393232, 4, 0, 393233, 4, 0, 393234, 4, 0, 393235, 4, 0, 393236, 4, 0, 393263, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458761, 3, 0, 458762, 3, 0, 458763, 3, 0, 458764, 3, 0, 458765, 3, 0, 458799, 0, 0, 589823, 0, 0, 524288, 3, 0, 524289, 3, 0, 524290, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524309, 0, 0, 524310, 0, 0, 524335, 0, 0, 655359, 0, 0, 589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589845, 3, 0, 589846, 3, 0, 589847, 0, 0, 589871, 0, 0, 720895, 0, 0, 655382, 3, 0, 655383, 3, 0, 655384, 0, 0, 655407, 0, 0, 786431, 0, 0, 720919, 3, 0, 720920, 3, 0, 720921, 0, 0, 720943, 0, 0, 851967, 0, 0, 786456, 3, 0, 786457, 3, 0, 786458, 0, 0, 786479, 0, 0, 917503, 0, 0, 851993, 3, 0, 851994, 3, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, 0, 0, 852005, 0, 0, 852006, 0, 0, 852007, 0, 0, 852008, 0, 0, 852009, 0, 0, 852010, 0, 0, 852011, 0, 0, 852012, 0, 0, 852013, 0, 0, 852014, 0, 0, 852015, 0, 0, 983039, 0, 0, 917530, 3, 0, 917531, 3, 0, 917532, 3, 0, 917533, 3, 0, 917534, 3, 0, 917535, 3, 0, 917541, 3, 0, 917542, 3, 0, 917543, 3, 0, 917544, 3, 0, 917545, 3, 0, 917546, 3, 0, 917547, 3, 0, 917548, 3, 0, 917549, 3, 0, 917550, 3, 0, 917551, 0, 0, 1048575, 0, 0, 983067, 3, 0, 983068, 3, 0, 983069, 3, 0, 983070, 3, 0, 983071, 3, 0, 983072, 3, 0, 983073, 3, 0, 983074, 3, 0, 983075, 3, 0, 983076, 3, 0, 983077, 3, 0, 983078, 3, 0, 983079, 3, 0, 983080, 3, 0, 983081, 3, 0, 983082, 3, 0, 983083, 3, 0, 983084, 3, 0, 983085, 3, 0, 983086, 3, 0, 983087, 0, 0, 1114111, 0, 0, 1179647, 0, 0 )
 
 [node name="Traps" type="TileMap" parent="Environment"]
 tile_set = SubResource( 7 )
@@ -230,13 +252,6 @@ format = 1
 tile_data = PoolIntArray( 393222, 0, 0, 393223, 0, 0, 917536, 0, 0, 917537, 0, 0, 917538, 0, 0, 917539, 0, 0, 917540, 0, 0 )
 
 [node name="Effects" type="Node2D" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 122, 373 )
-current = true
-limit_left = 0
-limit_top = 0
-limit_bottom = 1024
 
 [node name="Pickup_Container" type="Node2D" parent="."]
 
@@ -249,6 +264,15 @@ position = Vector2( 732, 360 )
 [node name="Jewel3" parent="Pickup_Container" instance=ExtResource( 4 )]
 position = Vector2( 788, 360 )
 
+[node name="Jewel4" parent="Pickup_Container" instance=ExtResource( 4 )]
+position = Vector2( 2536, 809 )
+
+[node name="Jewel5" parent="Pickup_Container" instance=ExtResource( 4 )]
+position = Vector2( 2588, 808 )
+
+[node name="Jewel6" parent="Pickup_Container" instance=ExtResource( 4 )]
+position = Vector2( 2644, 808 )
+
 [node name="Enemy_Container" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemy_Container" instance=ExtResource( 5 )]
@@ -257,17 +281,79 @@ position = Vector2( 1152, 344 )
 [node name="Player_Container" type="Node2D" parent="."]
 script = ExtResource( 6 )
 
-[node name="Player" parent="Player_Container" instance=ExtResource( 1 )]
-position = Vector2( 122, 373 )
-collision_mask = 5
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player_Container/Player"]
-remote_path = NodePath("../../../Camera2D")
-
 [node name="World_Limit" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World_Limit"]
 position = Vector2( 1823, 1080 )
 shape = SubResource( 8 )
 
-[connection signal="body_entered" from="World_Limit" to="Player_Container/Player" method="_on_World_Limit_body_entered"]
+[node name="Turn_Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turn_Detector"]
+position = Vector2( 963, 349.25 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Turn_Detector"]
+position = Vector2( 1341, 350 )
+shape = SubResource( 11 )
+
+[node name="Key" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2912, 800 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 10 )
+
+[node name="Panel" type="Panel" parent="UI"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 166.0
+margin_bottom = 81.0
+custom_styles/panel = SubResource( 12 )
+
+[node name="Panel2" type="Panel" parent="UI"]
+margin_left = 856.0
+margin_top = 16.0
+margin_right = 1006.0
+margin_bottom = 81.0
+custom_styles/panel = SubResource( 12 )
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+margin_left = 16.0
+margin_top = 11.0
+margin_right = 80.0
+margin_bottom = 75.0
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 8 )
+
+[node name="TextureRect2" type="TextureRect" parent="UI"]
+margin_left = 856.0
+margin_top = 11.0
+margin_right = 920.0
+margin_bottom = 75.0
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 11 )
+
+[node name="Jewels" type="Label" parent="UI"]
+margin_left = 94.0
+margin_top = 30.0
+margin_right = 137.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 13 )
+text = "x 0"
+align = 1
+valign = 1
+
+[node name="Lives" type="Label" parent="UI"]
+margin_left = 924.0
+margin_top = 30.0
+margin_right = 966.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 14 )
+text = "x 3"
+align = 1
+valign = 1
+
+[connection signal="body_entered" from="World_Limit" to="Player_Container" method="_on_World_Limit_body_entered"]
+[connection signal="body_entered" from="Turn_Detector" to="Enemy_Container/Enemy" method="_on_Turn_Detector_body_entered"]
