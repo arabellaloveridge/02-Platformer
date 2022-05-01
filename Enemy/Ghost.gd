@@ -3,6 +3,9 @@ extends KinematicBody2D
 var velocity = Vector2.ZERO
 var direction = -1
 
+onready var Effects = get_node_or_null("/root/Game/Effects")
+onready var Explosion = load("res://Enemy/Enemy_Explosion.tscn")
+
 func _ready():
 	pass
 
@@ -22,6 +25,10 @@ func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		body.bounce()
 		direction *= -1
+		if Effects != null:
+			var explosion = Explosion.instance()
+			explosion.global_position = global_position
+			Effects.add_child(explosion)
 		queue_free()
 
 func _on_Side_Checker_body_entered(body):

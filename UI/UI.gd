@@ -10,3 +10,4 @@ func update_label():
 	
 func update_lives():
 	$Lives.text = "x " + str(Global.lives)
+

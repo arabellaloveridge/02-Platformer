@@ -16,7 +16,5 @@ func update_jewels(j):
 func update_lives(l):
 	lives -= l
 	
-func _physics_process(delta):
-	if lives <= 0:
-		get_tree().change_scene("res://UI/End_Game.tscn")
+	
 
